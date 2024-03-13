@@ -36,7 +36,7 @@ jobs:
       - name: Set up Docker BuildX
         uses: docker/setup-buildx-action@v3
       - name: looking dir test
-        run: ls -l ${{ github.workspace }}
+        run: ls -l ${{ github.workspace }}/..
       - name: execute permission to build.sh
         run: chmod +x $(dirname ${{ github.workspace }}/build-files/.ci/build.sh)/build.sh
       - name: Login to DockerHub
