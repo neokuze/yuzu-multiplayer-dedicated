@@ -42,7 +42,7 @@ COPY . /root/build-files
 
 RUN --mount=type=cache,id=ccache,target=/root/.ccache \
     git clone --depth 1000 -j4 --recursive https://github.com/yuzu-mirror/yuzu-mainline.git /root/yuzu-mainline && \
-    cd /root/yuzu-mainline && /root/build-files/.ci/build.sh
+    cd /root/yuzu-mainline && chmod +x /root/build-files/.ci/build.sh && /root/build-files/.ci/build.sh 
 
 FROM rootfs-prep AS sliced-deps
 COPY --from=chisel /opt/chisel-releases /opt/chisel-releases
